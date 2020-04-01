@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Catalográfica</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>DORI ME</h1>
+
+    <form>
+        <label for="nome_autor">Autor*:</label>
+        <input type="text" id="nome_autor">
+
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo">
+
+        <label for="subtitulo">Subtítulo*:</label>
+        <input type="text" id="subtitulo">
+
+        <label for="local">Local*:</label>
+        <input type="text" id="local">
+
+        <label for="ano">Ano*:</label>
+        <input type="text" id="ano">
+
+        <!-- <label for="instituicao">Instituição:</label> -->
+        <input type="hidden" id="instituicao" value="Faculdade de Miguel Pereira">
+
+        <label for="paginas_pretextual">Nº de páginas pré-textual*:</label>
+        <input type="text" id="paginas_pretextual">
+
+        <label for="paginas_total">Nº total de páginas*:</label>
+        <input type="text" id="paginas_total">
+
+        <label for="ilustracao">Ilustração*:</label>
+        <select id="ilustracao">
+            <option value="">Escolha uma opção</option>
+            <option value="true">Sim</option>
+            <option value="false">Não</option>
+        </select>
+
+        <label for="bibliografia">Bibliografia*:</label>
+        <select id="bibliografia">
+            <option value="">Escolha uma opção</option>
+            <option value="true">Sim</option>
+            <option value="false">Não</option>
+        </select>
+
+        <label for="material_anexo">Material Anexo*:</label>
+        <select id="material_anexo">
+            <option value="">Escolha uma opção</option>
+            <option value="true">Sim</option>
+            <option value="false">Não</option>
+        </select>
+       
+        <label for="titulacao">Monografia/Titulação*:</label>
+        <select id="titulacao">
+            <option value="">Escolha uma opção</option>
+            <option value="Mestre">Dissertação Mestre</option>
+            <option value="Especialista">TCC Especialista</option>
+            <option value="Bacharel">TCC Bacharel</option>
+            <option value="Doutorado">Tese Doutorado</option>
+            <option value="Licenciado">TCC Licenciado</option>
+            <option value="Livre Docente">Tese Livre Docente</option>
+            <option value="Tecnólogo">TCC Título em tecnólogo</option>
+        </select>
+
+        <label for="curso">Nome do Curso*:</label>
+        <input type="text" id="curso">
+
+        <label for="orientador">Orientador*:</label>
+        <input type="text" id="orientador">
+
+        <label for="coorientador">Coorientador*:</label>
+        <input type="text" id="coorientador">
+
+
+        <label for="palavras_chave">Palavras-chave:</label>
+        <input type="text" id="palavras_chave">
+        
+        <a href="javascript:void(0)" onclick="generatePDF()">Test</a>
+        <!-- <input type="submit" onclick="downloadPDF()" value="Submit"> -->
+      </form> 
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
