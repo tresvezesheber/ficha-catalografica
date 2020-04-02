@@ -98,7 +98,7 @@ function generateTitleSubtitlePhrase(title, subtitle) {
 function generatePaginationPhrase(paginas_pretextual, paginas_total, ilustracao) {
     var phrase_pagination = "";
 
-    if(ilustracao === 'true') {
+    if (ilustracao === 'true') {
         phrase_pagination = `${generateRomanNumeral(paginas_pretextual)}, ${paginas_total} f. : il. ; 29,7 cm.`;
     } else {
         phrase_pagination = `${generateRomanNumeral(paginas_pretextual)}, ${paginas_total} f. ; 29,7 cm.`;
@@ -180,7 +180,8 @@ function generateKeyWordsPhrase(palavras_chave) {
 }
 
 function generatePosKeyWordsPhrase(orientador, coorientador, instituicao, titulo) {
-    if (coorientador == '') {
+    console.log("COORIENTADOR: " + coorientador)
+    if (coorientador[0] === "" && coorientador[1] === "") {
         phrase_pos_keywords = `I. ${orientador[0]}, ${orientador[1]}. II. ${instituicao}. III. ${titulo}.`
     } else {
         phrase_pos_keywords = `I. ${orientador[0]}, ${orientador[1]}. II. ${coorientador[0]}, ${coorientador[1]}. III. ${instituicao}. IV. ${titulo}.`
