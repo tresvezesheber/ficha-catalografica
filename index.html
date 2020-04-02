@@ -11,53 +11,53 @@
 <body>
     <main class="container">
         <form id="form" class="form" onsubmit="generatePDF()">
-            <label for="nome_autor">Autor* (Nome Completo):</label>
-            <input type="text" id="nome_autor" placeholder="Ex.: Duodécimo Fernandes" required>
+            <label class="form__label" for="nome_autor">Autor <span class="--red">*</span></label>
+            <input class="form__input" type="text" id="nome_autor" placeholder="Ex.: Duodécimo Fernandes" required>
 
-            <label for="titulo">Título do Trabalho*:</label>
-            <input type="text" id="titulo" placeholder="Ex.: Semântica HTML e a arquitetura front-end" required>
+            <label class="form__label" for="titulo">Título do Trabalho <span class="--red">*</span></label>
+            <input class="form__input" type="text" id="titulo" placeholder="Ex.: Semântica HTML e a arquitetura front-end" required>
 
-            <label for="subtitulo">Subtítulo:</label>
-            <input type="text" id="subtitulo" placeholder="Ex.: Uma Análise Geral">
+            <label class="form__label" for="subtitulo">Subtítulo</label>
+            <input class="form__input" type="text" id="subtitulo" placeholder="Ex.: Uma Análise Geral">
 
-            <label for="local">Local*:</label>
-            <input type="text" id="local" placeholder="Ex.: Miguel Pereira" required>
+            <label class="form__label" for="local">Local <span class="--red">*</span></label>
+            <input class="form__input" type="text" id="local" placeholder="Ex.: Miguel Pereira" required>
 
-            <label for="ano">Ano*:</label>
-            <input type="number" id="ano" placeholder="Ex.: 2016" required>
+            <label class="form__label" for="ano">Ano <span class="--red">*</span></label>
+            <input class="form__input" type="number" id="ano" placeholder="Ex.: 2016" required>
 
-            <label for="instituicao">Instituição*:</label>
-            <input type="text" id="instituicao" placeholder="Ex.: Pontifícia Universidade Católica de Minas Gerais" required>
+            <label class="form__label" for="instituicao">Instituição <span class="--red">*</span></label>
+            <input class="form__input" type="text" id="instituicao" placeholder="Ex.: Pontifícia Universidade Católica de Minas Gerais" required>
 
-            <label for="paginas_pretextual">Nº de páginas pré-textual*:</label>
-            <input type="number" id="paginas_pretextual" placeholder="Ex.: 13" required>
+            <label class="form__label" for="paginas_pretextual">Nº de páginas pré-textual <span class="--red">*</span></label>
+            <input class="form__input" type="number" id="paginas_pretextual" placeholder="Ex.: 13" required>
 
-            <label for="paginas_total">Nº total de páginas*:</label>
-            <input type="number" id="paginas_total" placeholder="Ex.: 62" required>
+            <label class="form__label" for="paginas_total">Nº total de páginas <span class="--red">*</span></label>
+            <input class="form__input" type="number" id="paginas_total" placeholder="Ex.: 62" required>
 
-            <label for="ilustracao">Contém Ilustração?*</label>
-            <select id="ilustracao" required>
+            <label class="form__label" for="ilustracao">Contém Ilustração? <span class="--red">*</span></label>
+            <select id="ilustracao" class="form__input" required>
                 <option value="">Escolha uma opção</option>
                 <option value="true">Sim</option>
                 <option value="false">Não</option>
             </select>
 
-            <label for="bibliografia">Contém Bibliografia?*</label>
-            <select id="bibliografia" required>
+            <label class="form__label" for="bibliografia">Contém Bibliografia? <span class="--red">*</span></label>
+            <select class="form__input" id="bibliografia" required>
                 <option value="">Escolha uma opção</option>
                 <option value="true">Sim</option>
                 <option value="false">Não</option>
             </select>
 
-            <label for="material_anexo">Contém Material Anexo?*</label>
-            <select id="material_anexo" required>
+            <label class="form__label" for="material_anexo">Contém Material Anexo? <span class="--red">*</span></label>
+            <select class="form__input" id="material_anexo" required>
                 <option value="">Escolha uma opção</option>
                 <option value="true">Sim</option>
                 <option value="false">Não</option>
             </select>
 
-            <label for="titulacao">Selecione o tipo de Monografia/Titulação*:</label>
-            <select id="titulacao" required>
+            <label class="form__label" for="titulacao">Selecione o tipo de Monografia/Titulação <span class="--red">*</span></label>
+            <select class="form__input" id="titulacao" required>
                 <option value="">Escolha uma opção</option>
                 <option value="Mestre">Dissertação / Mestre</option>
                 <option value="Especialista">TCC / Especialista</option>
@@ -68,21 +68,21 @@
                 <option value="Tecnólogo">TCC / Tecnólogo</option>
             </select>
 
-            <label for="curso">Curso*:</label>
-            <input type="text" id="curso" placeholder="Ex.: Engenharia de Computação" required>
+            <label class="form__label" for="curso">Curso <span class="--red">*</span></label>
+            <input class="form__input" type="text" id="curso" placeholder="Ex.: Engenharia de Computação" required>
 
-            <label for="orientador">Orientador*:</label>
-            <input type="text" id="orientador" placeholder="Ex.: Fábio dos Santos Gonçalves" required>
+            <label class="form__label" for="orientador">Orientador <span class="--red">*</span></label>
+            <input class="form__input" type="text" id="orientador" placeholder="Ex.: Fábio dos Santos Gonçalves" required>
 
-            <label for="coorientador">Coorientador:</label>
-            <input type="text" id="coorientador" placeholder="Ex.: Marco Antônio Pereira Araújo">
+            <label class="form__label" for="coorientador">Coorientador</label>
+            <input class="form__input" type="text" id="coorientador" placeholder="Ex.: Marco Antônio Pereira Araújo">
 
 
-            <label for="palavras_chave">Palavras-chave* (3 a 5 palavras):</label>
-            <input type="text" id="palavras_chave" placeholder="Ex.: Web, HTML, Internet" required>
+            <label class="form__label" for="palavras_chave">Palavras-chave <span class="--red">*</span> (3 a 5 palavras)</label>
+            <input class="form__input" type="text" id="palavras_chave" placeholder="Ex.: Web, HTML, Internet" required>
 
             <!-- <a href="javascript:void(0)" onclick="generatePDF()">Test</a> -->
-            <input type="submit" value="Gerar Ficha">
+            <input class="form__btn" type="submit" value="Gerar Ficha">
         </form>
     </main>
 
