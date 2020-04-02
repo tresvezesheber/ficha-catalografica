@@ -71,9 +71,21 @@ function generatePDF() {
     // Escrevendo conteudo no PDF
     doc.text(text, 64, 192)
     doc.setFontSize(8).text(phrase_elaboratedBy, 56, 260);
-    setTimeout(function () { doc.save(`Ficha Catalográfica - ${e_nome_autor}.pdf`) }, 1);
+
+    // Salva automaticamente
+    // doc.save(`Ficha Catalográfica - ${e_nome_autor}.pdf`, {returnPromise:true}).then(successGeneratePDF());
+
+    // Apenas abre em uma nova aba
+    doc.output('dataurlnewwindow');
 }
 
+function successGeneratePDF() {
+    var form = document.querySelector('#form')
+    var success_msg = document.querySelector('.success-msg')
+
+    form.remove()
+    success_msg.classList.remove('success-msg')
+}
 
 function splitName(name) {
     var name_splited = [];
@@ -180,7 +192,6 @@ function generateKeyWordsPhrase(palavras_chave) {
 }
 
 function generatePosKeyWordsPhrase(orientador, coorientador, instituicao, titulo) {
-    console.log("COORIENTADOR: " + coorientador)
     if (coorientador[0] === "" && coorientador[1] === "") {
         phrase_pos_keywords = `I. ${orientador[0]}, ${orientador[1]}. II. ${instituicao}. III. ${titulo}.`
     } else {
