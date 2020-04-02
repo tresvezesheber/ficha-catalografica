@@ -45,16 +45,17 @@ function generatePDF() {
 
     // Escrevendo conteudo no PDF
     doc.rect(50, 185, 129, 62)
+    doc.setLineWidth(1);
+    doc.line(52, 252, 179, 252);
+    doc.line(178.6, 247, 178.6, 252.5);
     doc.text(`${s_autor[0]}, ${s_autor[1]}`, 64, 192)
     doc.text(`${s_titulo} / ${e_nome_autor}. - ${s_local}: ${s_ano}.`, 70, 196, { maxWidth: '106' })
     doc.text(`xiii, ${s_paginas_total} f. : il. ; 29,7 cm.`, 70, 204)
-    doc.text(phrase_advisors, 70, 216, { maxWidth: '106' })
-    doc.text(`Trabalho de Conclusão de Curso para Obtenção do Grau de ${s_titulacao} em ${s_curso} - Universidade de Vassouras, ${s_ano}.`, 70, 70, { maxWidth: '100' })
-
-    doc.text(phrase_inclui, 5, 55)
-    doc.text(`Trabalho de Conclusão de Curso para Obtenção do Grau de ${s_titulacao} em ${s_curso} - Universidade de Vassouras, ${s_ano}.`, 5, 70)
-    doc.text(`${phrase_keywords}  ${phrase_pos_keywords}`, 5, 75, { maxWidth: '100' })
-    doc.setFontSize(9).text(phrase_elaboratedBy, 5, 80);
+    doc.text(phrase_advisors, 70, 212, { maxWidth: '106' })
+    doc.text(`Trabalho de Conclusão de Curso para Obtenção do Grau de ${s_titulacao} em ${s_curso} - Universidade de Vassouras, ${s_ano}.`, 70, 216, { maxWidth: '100' })
+    doc.text(phrase_inclui, 70, 224, { maxWidth: '100' })
+    doc.text(`${phrase_keywords}  ${phrase_pos_keywords}`, 70, 232, { maxWidth: '100' })
+    doc.setFontSize(8).text(phrase_elaboratedBy, 56, 250);
     setTimeout(function () { doc.save(`Ficha Catalográfica - ${e_nome_autor}.pdf`) }, 1);
 }
 
