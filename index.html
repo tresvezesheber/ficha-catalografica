@@ -9,80 +9,82 @@
 </head>
 
 <body>
-    <form id="form" onsubmit="generatePDF()">
-        <label for="nome_autor">Autor*:</label>
-        <input type="text" id="nome_autor" required>
+    <main class="container">
+        <form id="form" class="form" onsubmit="generatePDF()">
+            <label for="nome_autor">Autor*:</label>
+            <input type="text" id="nome_autor" required>
 
-        <label for="titulo">Título*:</label>
-        <input type="text" id="titulo" required>
+            <label for="titulo">Título*:</label>
+            <input type="text" id="titulo" required>
 
-        <label for="subtitulo">Subtítulo:</label>
-        <input type="text" id="subtitulo">
+            <label for="subtitulo">Subtítulo:</label>
+            <input type="text" id="subtitulo">
 
-        <label for="local">Local*:</label>
-        <input type="text" id="local" required>
+            <label for="local">Local*:</label>
+            <input type="text" id="local" required>
 
-        <label for="ano">Ano*:</label>
-        <input type="text" id="ano" required>
+            <label for="ano">Ano*:</label>
+            <input type="number" id="ano" required>
 
-        <label for="instituicao">Instituição*:</label>
-        <input type="text" id="instituicao" required>
+            <label for="instituicao">Instituição*:</label>
+            <input type="text" id="instituicao" required>
 
-        <label for="paginas_pretextual">Nº de páginas pré-textual*:</label>
-        <input type="text" id="paginas_pretextual" required>
+            <label for="paginas_pretextual">Nº de páginas pré-textual*:</label>
+            <input type="number" id="paginas_pretextual" required>
 
-        <label for="paginas_total">Nº total de páginas*:</label>
-        <input type="text" id="paginas_total" required>
+            <label for="paginas_total">Nº total de páginas*:</label>
+            <input type="number" id="paginas_total" required>
 
-        <label for="ilustracao">Ilustração*:</label>
-        <select id="ilustracao" required>
-            <option value="">Escolha uma opção</option>
-            <option value="true">Sim</option>
-            <option value="false">Não</option>
-        </select>
+            <label for="ilustracao">Ilustração*:</label>
+            <select id="ilustracao" required>
+                <option value="">Escolha uma opção</option>
+                <option value="true">Sim</option>
+                <option value="false">Não</option>
+            </select>
 
-        <label for="bibliografia">Bibliografia*:</label>
-        <select id="bibliografia" required>
-            <option value="">Escolha uma opção</option>
-            <option value="true">Sim</option>
-            <option value="false">Não</option>
-        </select>
+            <label for="bibliografia">Bibliografia*:</label>
+            <select id="bibliografia" required>
+                <option value="">Escolha uma opção</option>
+                <option value="true">Sim</option>
+                <option value="false">Não</option>
+            </select>
 
-        <label for="material_anexo">Material Anexo*:</label>
-        <select id="material_anexo" required>
-            <option value="">Escolha uma opção</option>
-            <option value="true">Sim</option>
-            <option value="false">Não</option>
-        </select>
+            <label for="material_anexo">Material Anexo*:</label>
+            <select id="material_anexo" required>
+                <option value="">Escolha uma opção</option>
+                <option value="true">Sim</option>
+                <option value="false">Não</option>
+            </select>
 
-        <label for="titulacao">Monografia/Titulação*:</label>
-        <select id="titulacao" required>
-            <option value="">Escolha uma opção</option>
-            <option value="Mestre">Dissertação / Mestre</option>
-            <option value="Especialista">TCC / Especialista</option>
-            <option value="Bacharel">TCC / Bacharel</option>
-            <option value="Doutor">Tese / Doutor</option>
-            <option value="Licenciado">TCC / Licenciado</option>
-            <option value="Livre Docente">Tese / Livre Docente</option>
-            <option value="Tecnólogo">TCC / Tecnólogo</option>
-        </select>
+            <label for="titulacao">Monografia/Titulação*:</label>
+            <select id="titulacao" required>
+                <option value="">Escolha uma opção</option>
+                <option value="Mestre">Dissertação / Mestre</option>
+                <option value="Especialista">TCC / Especialista</option>
+                <option value="Bacharel">TCC / Bacharel</option>
+                <option value="Doutor">Tese / Doutor</option>
+                <option value="Licenciado">TCC / Licenciado</option>
+                <option value="Livre Docente">Tese / Livre Docente</option>
+                <option value="Tecnólogo">TCC / Tecnólogo</option>
+            </select>
 
-        <label for="curso">Nome do Curso*:</label>
-        <input type="text" id="curso" required>
+            <label for="curso">Nome do Curso*:</label>
+            <input type="text" id="curso" required>
 
-        <label for="orientador">Orientador*:</label>
-        <input type="text" id="orientador" required>
+            <label for="orientador">Orientador*:</label>
+            <input type="text" id="orientador" required>
 
-        <label for="coorientador">Coorientador:</label>
-        <input type="text" id="coorientador">
+            <label for="coorientador">Coorientador:</label>
+            <input type="text" id="coorientador">
 
 
-        <label for="palavras_chave">Palavras-chave*:</label>
-        <input type="text" id="palavras_chave" required>
+            <label for="palavras_chave">Palavras-chave*:</label>
+            <input type="text" id="palavras_chave" required>
 
-        <!-- <a href="javascript:void(0)" onclick="generatePDF()">Test</a> -->
-        <input type="submit" value="Gerar Ficha">
-    </form>
+            <!-- <a href="javascript:void(0)" onclick="generatePDF()">Test</a> -->
+            <input type="submit" value="Gerar Ficha">
+        </form>
+    </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>

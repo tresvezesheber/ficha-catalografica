@@ -1,7 +1,21 @@
-form * {
-    display: block;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.success-msg {
-    display: none;
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form {
+  max-width: 300px;
+  margin: 0 auto;
+  /* background: indianred; */
+}
+
+.form * {
+  display: block;
+  width: 100%;
 }
