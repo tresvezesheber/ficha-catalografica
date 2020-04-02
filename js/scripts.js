@@ -1,7 +1,11 @@
 function generatePDF() {
-    var doc = new jsPDF();
+    var doc = new jsPDF({
+        orientation: 'p',
+        unit: 'mm',
+        format: 'a4',
+    });
     doc.setFont('times')
-    doc.setFontSize(9)
+    doc.setFontSize(10)
 
     // Pegando valores dos elementos
     var e_nome_autor = document.querySelector("#nome_autor").value;
@@ -40,27 +44,27 @@ function generatePDF() {
     phrase_advisors = generateAdvisorsPhrase(e_orientador, e_coorientador)
 
     // Escrevendo conteudo no PDF
-    doc.text(`${s_autor[0]}, ${s_autor[1]}`, 5, 40)
-    doc.text(`${s_titulo} / ${e_nome_autor}. - ${s_local}: ${s_ano}.`, 5, 45)
-    doc.text(`xiii, ${s_paginas_total} f. : il. ; 29,7 cm.`, 5, 50)
+    doc.rect(50, 185, 129, 62)
+    doc.text(`${s_autor[0]}, ${s_autor[1]}`, 64, 192)
+    doc.text(`${s_titulo} / ${e_nome_autor}. - ${s_local}: ${s_ano}.`, 70, 196, { maxWidth: '106' })
+    doc.text(`xiii, ${s_paginas_total} f. : il. ; 29,7 cm.`, 70, 204)
+    doc.text(phrase_advisors, 70, 216, { maxWidth: '106' })
+    doc.text(`Trabalho de Conclusão de Curso para Obtenção do Grau de ${s_titulacao} em ${s_curso} - Universidade de Vassouras, ${s_ano}.`, 70, 70, { maxWidth: '100' })
+
     doc.text(phrase_inclui, 5, 55)
-    doc.text(phrase_advisors, 5, 60)
-    doc.text(`Trabalho de Conclusão de Curso para Obtenção do Grau de ${s_titulacao} em ${s_curso} - Universidade de Vassouras, ${ano}.`, 5, 70)
-    doc.text(`${phrase_keywords}  ${phrase_pos_keywords}`, 5, 75)
+    doc.text(`Trabalho de Conclusão de Curso para Obtenção do Grau de ${s_titulacao} em ${s_curso} - Universidade de Vassouras, ${s_ano}.`, 5, 70)
+    doc.text(`${phrase_keywords}  ${phrase_pos_keywords}`, 5, 75, { maxWidth: '100' })
     doc.setFontSize(9).text(phrase_elaboratedBy, 5, 80);
     setTimeout(function () { doc.save(`Ficha Catalográfica - ${e_nome_autor}.pdf`) }, 1);
 }
 
-function drawRect() {
-    doc.rect(20, 20, 126.4, 75);
-}
 
 function splitName(name) {
     var name_splited = [];
 
     name_splited.push(name.split(' ').slice(-1).join(' '));
     name_splited.push(name.split(' ').slice(0, -1).join(' '));
-    
+
     return name_splited;
 }
 
