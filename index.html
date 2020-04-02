@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ficha Catalográfica</title>
+    <title>Gerador Automático de Ficha Catalográfica</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <h1>DORI ME</h1>
-    <h1 class="success-msg">INTERIMO ADAPARE DORI ME</h1>
-    <form id="form">
+    <form id="form" onsubmit="generatePDF()">
         <label for="nome_autor">Autor*:</label>
         <input type="text" id="nome_autor">
 
@@ -54,7 +54,7 @@
             <option value="true">Sim</option>
             <option value="false">Não</option>
         </select>
-       
+
         <label for="titulacao">Monografia/Titulação*:</label>
         <select id="titulacao">
             <option value="">Escolha uma opção</option>
@@ -79,14 +79,12 @@
 
         <label for="palavras_chave">Palavras-chave:</label>
         <input type="text" id="palavras_chave">
-        
-        <a href="javascript:void(0)" onclick="generatePDF()">Test</a>
-        <!-- <input type="submit" onclick="downloadPDF()" value="Submit"> -->
-      </form> 
-    
-      <div id="element"></div>
+
+        <!-- <a href="javascript:void(0)" onclick="generatePDF()">Test</a> -->
+        <input type="submit" value="Submit">
+    </form>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script> -->
     <script src="js/scripts.js"></script>
 </body>
 </html>
