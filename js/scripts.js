@@ -28,6 +28,7 @@ function generatePDF() {
 
     var phrase_title_subtitle = "";
     var phrase_inclui = "";
+    var phrase_pagination = "";
     var phrase_keywords = ""
     var phrase_pos_keywords = ""
     var phrase_advisors = ""
@@ -43,6 +44,7 @@ function generatePDF() {
 
 
     phrase_title_subtitle = generateTitleSubtitlePhrase(s_titulo, s_subtitulo)
+    phrase_pagination = generatePaginationPhrase(s_paginas_pretextual, s_paginas_total, s_ilustracao)
     phrase_inclui = generateMaterialsPhrase(s_ilustracao, s_bibliografia, s_material_anexo)
     phrase_keywords = generateKeyWordsPhrase(e_palavras_chave)
     phrase_pos_keywords = generatePosKeyWordsPhrase(s_orientador, s_coorientador, s_instituicao, s_titulo)
@@ -51,7 +53,7 @@ function generatePDF() {
 
     var line_1 = `${s_autor[0]}, ${s_autor[1]}\n`
     var line_2 = `      ${phrase_title_subtitle} / ${e_nome_autor}. - ${s_local}: ${s_ano}.\n`;
-    var line_3 = `      ix, ${s_paginas_total} f. : il. ; 29,7 cm.\n\n`;
+    var line_3 = `      ${phrase_pagination}\n\n`;
     var line_4 = '      ' + phrase_advisors + '\n';
     var line_5 = `      ${phrase_degree} - Universidade de Vassouras, ${s_ano}.\n`;
     var line_6 = '      ' + phrase_inclui + '\n\n';
@@ -91,6 +93,39 @@ function generateTitleSubtitlePhrase(title, subtitle) {
     }
 
     return phrase_title_subtitle;
+}
+
+function generatePaginationPhrase(paginas_pretextual, paginas_total, ilustracao) {
+    var phrase_pagination = "";
+
+    if(ilustracao === 'true') {
+        phrase_pagination = `${generateRomanNumeral(paginas_pretextual)}, ${paginas_total} f. : il. ; 29,7 cm.`;
+    } else {
+        phrase_pagination = `${generateRomanNumeral(paginas_pretextual)}, ${paginas_total} f. ; 29,7 cm.`;
+    }
+
+    return phrase_pagination;
+}
+
+// Função adaptada do site http://www.interaula.com/matweb/conline/progs/romanos.htm
+function generateRomanNumeral(numero) {
+    var N = numero;
+    // var N1 = N;
+    var Y = ""
+    while (N / 1000 >= 1) { Y += "m"; N = N - 1000; }
+    if (N / 900 >= 1) { Y += "cm"; N = N - 900; }
+    if (N / 500 >= 1) { Y += "d"; N = N - 500; }
+    if (N / 400 >= 1) { Y += "cd"; N = N - 400; }
+    while (N / 100 >= 1) { Y += "c"; N = N - 100; }
+    if (N / 90 >= 1) { Y += "xc"; N = N - 90; }
+    if (N / 50 >= 1) { Y += "l"; N = N - 50; }
+    if (N / 40 >= 1) { Y += "xl"; N = N - 40; }
+    while (N / 10 >= 1) { Y += "x"; N = N - 10; }
+    if (N / 9 >= 1) { Y += "ix"; N = N - 9; }
+    if (N / 5 >= 1) { Y += "v"; N = N - 5; }
+    if (N / 4 >= 1) { Y += "iv"; N = N - 4; }
+    while (N >= 1) { Y += "i"; N = N - 1; }
+    return Y;
 }
 
 function generateDegreePhrase(titulacao, curso) {
