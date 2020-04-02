@@ -11,52 +11,52 @@
 <body>
     <main class="container">
         <form id="form" class="form" onsubmit="generatePDF()">
-            <label for="nome_autor">Autor*:</label>
-            <input type="text" id="nome_autor" required>
+            <label for="nome_autor">Autor* (Nome Completo):</label>
+            <input type="text" id="nome_autor" placeholder="Ex.: Duodécimo Fernandes" required>
 
-            <label for="titulo">Título*:</label>
-            <input type="text" id="titulo" required>
+            <label for="titulo">Título do Trabalho*:</label>
+            <input type="text" id="titulo" placeholder="Ex.: Semântica HTML e a arquitetura front-end" required>
 
             <label for="subtitulo">Subtítulo:</label>
-            <input type="text" id="subtitulo">
+            <input type="text" id="subtitulo" placeholder="Ex.: Uma Análise Geral">
 
             <label for="local">Local*:</label>
-            <input type="text" id="local" required>
+            <input type="text" id="local" placeholder="Ex.: Miguel Pereira" required>
 
             <label for="ano">Ano*:</label>
-            <input type="number" id="ano" required>
+            <input type="number" id="ano" placeholder="Ex.: 2016" required>
 
             <label for="instituicao">Instituição*:</label>
-            <input type="text" id="instituicao" required>
+            <input type="text" id="instituicao" placeholder="Ex.: Pontifícia Universidade Católica de Minas Gerais" required>
 
             <label for="paginas_pretextual">Nº de páginas pré-textual*:</label>
-            <input type="number" id="paginas_pretextual" required>
+            <input type="number" id="paginas_pretextual" placeholder="Ex.: 13" required>
 
             <label for="paginas_total">Nº total de páginas*:</label>
-            <input type="number" id="paginas_total" required>
+            <input type="number" id="paginas_total" placeholder="Ex.: 62" required>
 
-            <label for="ilustracao">Ilustração*:</label>
+            <label for="ilustracao">Contém Ilustração?*</label>
             <select id="ilustracao" required>
                 <option value="">Escolha uma opção</option>
                 <option value="true">Sim</option>
                 <option value="false">Não</option>
             </select>
 
-            <label for="bibliografia">Bibliografia*:</label>
+            <label for="bibliografia">Contém Bibliografia?*</label>
             <select id="bibliografia" required>
                 <option value="">Escolha uma opção</option>
                 <option value="true">Sim</option>
                 <option value="false">Não</option>
             </select>
 
-            <label for="material_anexo">Material Anexo*:</label>
+            <label for="material_anexo">Contém Material Anexo?*</label>
             <select id="material_anexo" required>
                 <option value="">Escolha uma opção</option>
                 <option value="true">Sim</option>
                 <option value="false">Não</option>
             </select>
 
-            <label for="titulacao">Monografia/Titulação*:</label>
+            <label for="titulacao">Selecione o tipo de Monografia/Titulação*:</label>
             <select id="titulacao" required>
                 <option value="">Escolha uma opção</option>
                 <option value="Mestre">Dissertação / Mestre</option>
@@ -68,18 +68,18 @@
                 <option value="Tecnólogo">TCC / Tecnólogo</option>
             </select>
 
-            <label for="curso">Nome do Curso*:</label>
-            <input type="text" id="curso" required>
+            <label for="curso">Curso*:</label>
+            <input type="text" id="curso" placeholder="Ex.: Engenharia de Computação" required>
 
             <label for="orientador">Orientador*:</label>
-            <input type="text" id="orientador" required>
+            <input type="text" id="orientador" placeholder="Ex.: Fábio dos Santos Gonçalves" required>
 
             <label for="coorientador">Coorientador:</label>
-            <input type="text" id="coorientador">
+            <input type="text" id="coorientador" placeholder="Ex.: Marco Antônio Pereira Araújo">
 
 
-            <label for="palavras_chave">Palavras-chave*:</label>
-            <input type="text" id="palavras_chave" required>
+            <label for="palavras_chave">Palavras-chave* (3 a 5 palavras):</label>
+            <input type="text" id="palavras_chave" placeholder="Ex.: Web, HTML, Internet" required>
 
             <!-- <a href="javascript:void(0)" onclick="generatePDF()">Test</a> -->
             <input type="submit" value="Gerar Ficha">
