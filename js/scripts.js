@@ -73,10 +73,10 @@ function generatePDF() {
     doc.setFontSize(8).text(phrase_elaboratedBy, 56, 260);
 
     // Salva automaticamente
-    // doc.save(`Ficha Catalográfica - ${e_nome_autor}.pdf`, {returnPromise:true}).then(successGeneratePDF());
+    doc.save(`Ficha Catalográfica - ${e_nome_autor}.pdf`, {returnPromise:true}).then(successGeneratePDF());
 
     // Apenas abre em uma nova aba
-    doc.output('dataurlnewwindow');
+    // window.open(doc.output('dataurlnewwindow'));
 }
 
 function successGeneratePDF() {
