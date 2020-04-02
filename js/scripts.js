@@ -10,6 +10,7 @@ function generatePDF() {
     // Pegando valores dos elementos
     var e_nome_autor = document.querySelector("#nome_autor").value;
     var s_titulo = document.querySelector('#titulo').value
+    var s_subtitulo = document.querySelector('#subtitulo').value
     var s_instituicao = document.querySelector('#instituicao').value
     var s_local = document.querySelector('#local').value
     var s_ano = document.querySelector('#ano').value
@@ -25,6 +26,7 @@ function generatePDF() {
     var e_palavras_chave = document.querySelector("#palavras_chave").value;
     var phrase_elaboratedBy = "Ficha catalográfica elaborada pela Biblioteca Central da Universidade de Vassouras / Vassouras - RJ";
 
+    var phrase_title_subtitle = "";
     var phrase_inclui = "";
     var phrase_keywords = ""
     var phrase_pos_keywords = ""
@@ -39,14 +41,14 @@ function generatePDF() {
     var s_coorientador = splitName(e_coorientador);
 
 
-
+    phrase_title_subtitle = generateTitleSubtitlePhrase(s_titulo, s_subtitulo)
     phrase_inclui = generateMaterialsPhrase(s_ilustracao, s_bibliografia, s_material_anexo)
     phrase_keywords = generateKeyWordsPhrase(e_palavras_chave)
     phrase_pos_keywords = generatePosKeyWordsPhrase(s_orientador, s_coorientador, s_instituicao, s_titulo)
     phrase_advisors = generateAdvisorsPhrase(e_orientador, e_coorientador)
 
     var line_1 = `${s_autor[0]}, ${s_autor[1]}\n`
-    var line_2 = `      ${s_titulo} / ${e_nome_autor}. - ${s_local}: ${s_ano}.\n`;
+    var line_2 = `      ${phrase_title_subtitle} / ${e_nome_autor}. - ${s_local}: ${s_ano}.\n`;
     var line_3 = `      xiii, ${s_paginas_total} f. : il. ; 29,7 cm.\n\n`;
     var line_4 = '      ' + phrase_advisors + '\n';
     var line_5 = `      Trabalho de Conclusão de Curso para Obtenção do Grau de ${s_titulacao} em ${s_curso} - Universidade de Vassouras, ${s_ano}.\n`;
@@ -85,6 +87,17 @@ function splitName(name) {
     name_splited.push(name.split(' ').slice(0, -1).join(' '));
 
     return name_splited;
+}
+
+function generateTitleSubtitlePhrase(title, subtitle) {
+    var phrase_title_subtitle = "";
+    if (subtitle) {
+        phrase_title_subtitle = `${title}: ${subtitle}`;
+    } else {
+        phrase_title_subtitle = `${title}`;
+    }
+
+    return phrase_title_subtitle;
 }
 
 function generateMaterialsPhrase(ilustracao, bibliografia, anexo) {
