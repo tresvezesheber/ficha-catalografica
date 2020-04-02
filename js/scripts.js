@@ -31,6 +31,7 @@ function generatePDF() {
     var phrase_keywords = ""
     var phrase_pos_keywords = ""
     var phrase_advisors = ""
+    var phrase_degree = ""
 
     var date = new Date()
     var ano = date.getFullYear()
@@ -46,12 +47,13 @@ function generatePDF() {
     phrase_keywords = generateKeyWordsPhrase(e_palavras_chave)
     phrase_pos_keywords = generatePosKeyWordsPhrase(s_orientador, s_coorientador, s_instituicao, s_titulo)
     phrase_advisors = generateAdvisorsPhrase(e_orientador, e_coorientador)
+    phrase_degree = generateDegreePhrase(s_titulacao, s_curso)
 
     var line_1 = `${s_autor[0]}, ${s_autor[1]}\n`
     var line_2 = `      ${phrase_title_subtitle} / ${e_nome_autor}. - ${s_local}: ${s_ano}.\n`;
-    var line_3 = `      xiii, ${s_paginas_total} f. : il. ; 29,7 cm.\n\n`;
+    var line_3 = `      ix, ${s_paginas_total} f. : il. ; 29,7 cm.\n\n`;
     var line_4 = '      ' + phrase_advisors + '\n';
-    var line_5 = `      Trabalho de Conclusão de Curso para Obtenção do Grau de ${s_titulacao} em ${s_curso} - Universidade de Vassouras, ${s_ano}.\n`;
+    var line_5 = `      ${phrase_degree} - Universidade de Vassouras, ${s_ano}.\n`;
     var line_6 = '      ' + phrase_inclui + '\n\n';
     var line_7 = `      ${phrase_keywords}  ${phrase_pos_keywords}`;
 
@@ -66,15 +68,6 @@ function generatePDF() {
 
     // Escrevendo conteudo no PDF
     doc.text(text, 64, 192)
-
-    // doc.text(`${s_autor[0]}, ${s_autor[1]}`, 64, 192)
-    // doc.text(`      ${s_titulo} / ${e_nome_autor}. - ${s_local}: ${s_ano}.`, 64, 196, { maxWidth: '116' })
-    // var text = doc.splitTextToSize()
-    // doc.text(`      xiii, ${s_paginas_total} f. : il. ; 29,7 cm.`, 64, 204)
-    // doc.text('      ' + phrase_advisors, 64, 212, { maxWidth: '116' })
-    // doc.text(`      Trabalho de Conclusão de Curso para Obtenção do Grau de ${s_titulacao} em ${s_curso} - Universidade de Vassouras, ${s_ano}.`, 64, 216, { maxWidth: '116' })
-    // doc.text('      ' + phrase_inclui, 64, 224, { maxWidth: '116' })
-    // doc.text(`      ${phrase_keywords}  ${phrase_pos_keywords}`, 64, 232, { maxWidth: '116' })
     doc.setFontSize(8).text(phrase_elaboratedBy, 56, 260);
     setTimeout(function () { doc.save(`Ficha Catalográfica - ${e_nome_autor}.pdf`) }, 1);
 }
@@ -98,6 +91,19 @@ function generateTitleSubtitlePhrase(title, subtitle) {
     }
 
     return phrase_title_subtitle;
+}
+
+function generateDegreePhrase(titulacao, curso) {
+    var phrase_degree = ";"
+    if (titulacao === "Mestre") {
+        phrase_degree = `Dissertação para Obtenção do Grau de ${titulacao} em ${curso}`;
+    } else if (titulacao === "Doutor" || titulacao === "Livre Docente") {
+        phrase_degree = `Tese para Obtenção do Grau de ${titulacao} em ${curso}`;
+    } else {
+        phrase_degree = `Trabalho de Conclusão de Curso para Obtenção do Grau de ${titulacao} em ${curso}`;
+    }
+
+    return phrase_degree;
 }
 
 function generateMaterialsPhrase(ilustracao, bibliografia, anexo) {
