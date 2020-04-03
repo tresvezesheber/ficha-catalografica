@@ -24,7 +24,7 @@ function generatePDF() {
     var e_orientador = document.querySelector('#orientador').value
     var e_coorientador = document.querySelector('#coorientador').value
     var e_palavras_chave = document.querySelector("#palavras_chave").value;
-    var phrase_elaboratedBy = "Ficha catalográfica elaborada pela Biblioteca Central da Universidade de Vassouras / Vassouras - RJ";
+    var phrase_elaboratedBy = `Ficha catalográfica elaborada pela Biblioteca Central da ${s_instituicao} / ${s_local}`;
 
     var phrase_title_subtitle = "";
     var phrase_inclui = "";
@@ -55,7 +55,7 @@ function generatePDF() {
     var line_2 = `      ${phrase_title_subtitle} / ${e_nome_autor}. - ${s_local}: ${s_ano}.\n`;
     var line_3 = `      ${phrase_pagination}\n\n`;
     var line_4 = '      ' + phrase_advisors + '\n';
-    var line_5 = `      ${phrase_degree} - Universidade de Vassouras, ${s_ano}.\n`;
+    var line_5 = `      ${phrase_degree} - ${s_instituicao}, ${s_ano}.\n`;
     var line_6 = '      ' + phrase_inclui + '\n\n';
     var line_7 = `      ${phrase_keywords}  ${phrase_pos_keywords}`;
 
@@ -64,13 +64,13 @@ function generatePDF() {
 
     // Desenhando retângulo e linhas
     doc.rect(50, 185, 129, 72)
-    doc.setLineWidth(1);
-    doc.line(52, 262, 179, 262);
-    doc.line(178.6, 257, 178.6, 262.5);
+    // doc.setLineWidth(1);
+    // doc.line(52, 262, 179, 262);
+    // doc.line(178.6, 257, 178.6, 262.5);
 
     // Escrevendo conteudo no PDF
     doc.text(text, 64, 192)
-    doc.setFontSize(8).text(phrase_elaboratedBy, 56, 260);
+    // doc.setFontSize(8).text(phrase_elaboratedBy, 56, 260);
 
     // Salva automaticamente
     doc.save(`Ficha Catalográfica - ${e_nome_autor}.pdf`, {returnPromise:true}).then(successGeneratePDF());
